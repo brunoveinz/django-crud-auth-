@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>SignUp</h1>
+{{error}}
+<!-- Este formulario se muestra en GET signup pero los datos se envian a POST signup -->
+<form action="/signup/" method="POST"> 
+    {{ form.as_p}}
+    {% csrf_token %} <!-- id de pagina seguridad  -->
+    <button>send</button>
+</form>
+
+{% endblock %}

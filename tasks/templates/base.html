@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Crud aplicacion</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'tasks'%}">Tasks</a>
+            </li>
+            <li>
+                <a href="{% url 'tasks_completed'%}">Tasks Completed</a>
+            </li>
+            <li>
+                <a href="/tasks/create">Create Task</a>
+            </li>
+            <!-- user es una variable global como CurrentUser de rails -->
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/logout">Salir</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/signup">Signup</a>
+            </li>
+            <li>
+                <a href="/signin">Signin</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
